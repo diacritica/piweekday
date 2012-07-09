@@ -1,0 +1,34 @@
+from django.conf.urls import patterns, include, url
+
+# Uncomment the next two lines to enable the admin:
+from django.contrib import admin
+admin.autodiscover()
+import piweekday.settings as settings
+
+urlpatterns = patterns('',
+    # Examples:
+        
+    #create home page    
+    url(r'^$', 'piweekday.web.views.home'),
+    
+    #url donde ver las polls COMO MUESTRO EL NOMBRE DE LA ENCUESTA?
+    url(r'^polls/(?P<poll_id>\d+)/$', 'piweekday.web.views.viewPoll'),
+    
+    #url donde ver el resultado de la encuesta concreta
+    url(r'^polls/(?P<poll_id>\d+)/result/$', 'piweekday.web.views.viewPollResults'),
+    
+    # url(r'^piweekday/', include('piweekday.foo.urls')),
+
+    # Uncomment the admin/doc line below to enable admin documentation:
+    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+
+    # Uncomment the next line to enable the admin:
+    url(r'^wopr/', include(admin.site.urls)),
+
+    url(r'^static/(?P<path>.*)$', 'django.views.static.serve', {
+                'document_root': settings.MEDIA_ROOT,
+                        }),
+    
+    
+    
+    )

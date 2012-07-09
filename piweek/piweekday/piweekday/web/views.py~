@@ -1,0 +1,18 @@
+# Create your views here.
+
+from django.shortcuts import render_to_response
+from piweekday.web.models import Poll, Choice
+from django.http import HttpResponse
+
+def home(request):
+    return HttpResponse("OK!")
+
+def viewPoll(request, poll_id):
+    mypoll = Poll.objects.get(pk=poll_id)
+    return render_to_response('poll.html',{'mypoll':mypoll})
+#    return HttpResponse("OK! VP " + str(mypoll))
+
+def viewPollResults(request, poll_id):
+    mypoll = Poll.objects.get(pk=poll_id)
+    results = mypoll.choice_set.all()
+    return HttpResponse("OK! VPR " + str(mypoll) + " " +  str(results))
