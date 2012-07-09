@@ -7,6 +7,8 @@ import piweekday.settings as settings
 
 urlpatterns = patterns('',
     # Examples:
+
+    url(r'^atom/', include('piweekday.atomreader.atomreaderurls')),
         
     #create home page    
     url(r'^$', 'piweekday.web.views.home'),

@@ -1,0 +1,11 @@
+# -*- coding: utf-8 *-*
+from django.conf.urls.defaults import patterns
+
+from piweekday.atomreader import views as atomreaderviews
+
+urlpatterns = patterns('',
+    (r'^$', atomreaderviews.ARIndex),
+
+    (r'^(?P<githubuser>.+)/(?P<githubrepo>.+)/$', atomreaderviews.GithubAtomFeedView),
+
+    )

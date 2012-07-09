@@ -1,0 +1,7 @@
+<html>
+{% for entry in feed %}
+<p><img src="{{entry.avatar}}"> {{entry.title}}</p>
+<p>{{entry.updated}}</p>
+{{entry.summary|safe}}
+{% endfor %}
+</html>
