@@ -13,6 +13,9 @@ urlpatterns = patterns('',
     #create home page    
     url(r'^$', 'piweekday.web.views.home'),
     
+    #projects page
+    url(r'^piweek/$', 'piweekday.web.views.piweek'),
+    
     # url(r'^piweekday/', include('piweekday.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

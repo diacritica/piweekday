@@ -6,7 +6,10 @@ from django.http import HttpResponse
 from piweekday.settings import STATIC_URL
 
 def home(request):
-    return render_to_response('web/base.html',  {'STATIC_URL': STATIC_URL})
+    return render_to_response('web/home.html',  {'STATIC_URL': STATIC_URL})
+
+def piweek(request):
+    return render_to_response('web/piweek.html',  {'STATIC_URL': STATIC_URL})
 
 #def viewPoll(request, poll_id):
 #    mypoll = Poll.objects.get(pk=poll_id)

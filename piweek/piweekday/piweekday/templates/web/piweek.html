@@ -1,0 +1,22 @@
+{% extends "web/base.html" %}
+
+    {% block head_title %}
+       Piweek
+    {% endblock%}
+
+{% block content %}
+        <!-- THERE WE GO WITH THE CONTENT -->
+        <div role="main">
+            <div class="wrapper">
+               <div class="sliderwrapper">
+                   <div class="slider">
+                       <ul>
+                           <li><img src="{{STATIC_URL}}img/slider1.png" alt="Slider1" /></li>
+                           <li><img src="{{STATIC_URL}}img/slider2.png" alt="slider2" /></li>
+                       </ul>
+                   </div>
+               </div>
+            </div>
+        </div><!-- main -->
+        
+{% endblock %}

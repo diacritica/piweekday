@@ -2,6 +2,7 @@
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
 <!--[if gt IE 8]><!-->
+    {% load staticfiles %}
 <html class="no-js" lang="en">
     <!--<![endif]-->
     <head>
@@ -9,16 +10,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
         <title>A  day in the ΠWEEK | {% block head_title %}Home{% endblock %} </title>
-        
+
         {% block head_metas %}{% endblock %}
         <meta name="robots" content="index, follow">
         <meta name="description" content="Bringing pure innovation one week every six months to Spanish companies">
         <meta name="author" content="Kaleidos">
-        <link rel="shortcut icon" href="{{ STATIC_URL }}img/favicon.ico" />
+        <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" />
         <meta name="viewport" content="width=device-width">
 
-        <link rel="stylesheet/less" href="{{ STATIC_URL }}less/style.less">
-        <script src="{{ STATIC_URL }}js/libs/less-1.3.0.min.js"></script>
+        <link rel="stylesheet/less" href="{% static "less/style.less" %}" />
+        <script src="{% static "js/libs/less-1.3.0.min.js" %}"></script>
 
         <!-- Use SimpLESS (Win/Linux/Mac) or LESS.app (Mac) to compile your .less files
         to style.css, and replace the 2 lines above by this one:
@@ -29,23 +30,72 @@
     </head>
     <body>
         <header>
-
-        </header>
-        <div role="main">
             <div id="header">
                 <div class="wrapper">
-                    <h1><a href="/">A day in the ΠWEEK </a></h1>
+                    <h1><a href="/">A day in the ΠWEEK</a></h1>
+                    <p>
+                        Bringing pure innovation to Spanish companies one week every six months
+                    </p>
                 </div>
-            </div>
-        </div>
-        <footer>
+            </div><!-- header -->
+        </header>
 
+        <!-- THERE WE GO WITH THE CONTENT -->
+
+        {% block content %}
+        
+        {% endblock %}
+
+        <!-- THERE WE GO WITH THE CONTENT -->
+
+        <footer>
+            <div class="wrapper">
+                <ul class="clearfix">
+                    <li>
+                        <a href="#" title="Seekagift">Seekagift</a>
+                    </li>
+                    <li>
+                        <a href="#" title="Greenmine">Gremine</a>
+                    </li>
+                    <li>
+                        <a href="#" title="Macadjan">Macadjan</a>
+                    </li>
+                    <li>
+                        <a href="#" title="RPyG">RPyG</a>
+                    </li>
+                    <li>
+                        <a href="#" title="Bokzuy">Bokzuy</a>
+                    </li>
+                    <li>
+                        <a href="#" title="Online Password">Online Password</a>
+                    </li>
+                    <li>
+                        <a href="#" title="Ninja SysOP">Ninja SysOP</a>
+                    </li>
+                    <li>
+                        <a href="#" title="SimpleSAMLphp">SimpleSAMLphp</a>
+                    </li>
+                    <li>
+                        <a href="#" title="Django detect cyclic">Django detect cyclic</a>
+                    </li>
+                    <li>
+                        <a href="#" title="Tu tasa de paro">Tu tasa de paro</a>
+                    </li>
+                    <li>
+                        <a href="#" title="A day in the Π WEEK">A day in the Π WEEK</a>
+                    </li>
+                    <li>
+                        <a href="#" title="Chencho!">Chencho!</a>
+                    </li>
+                </ul>
+            </div>
         </footer>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-        
-        <script src="{{ STATIC_URL }}js/libs/popcorn.js"></script>
-        <script src="{{ STATIC_URL }}js/plugins.js"></script>
-        <script src="{{ STATIC_URL }}js/script.js"></script>
+        <script src="{% static "js/libs/underscore-min.js" %}"></script>
+        <script src="{% static "js/libs/backbone-min.js" %}"></script>
+        <script src="{% static "js/libs/popcorn.js" %}"></script>
+        <script src="{% static "js/script.js" %}"></script>
+        {% block extrascripts %}{% endblock %}
     </body>
 </html>

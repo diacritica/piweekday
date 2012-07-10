@@ -1,7 +1,7 @@
-<html>
 {% for entry in feed %}
-<p><img src="{{entry.avatar}}"> {{entry.title}}</p>
+<li>
+<img src="{{entry.avatar}}">
+<p>{{entry.title}}</p>
 <p>{{entry.updated}}</p>
-{{entry.summary|safe}}
+</li>
 {% endfor %}
-</html>
