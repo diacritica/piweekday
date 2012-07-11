@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     url(r'^projects/$', 'piweekday.web.views.projects'),
 
     #projects single page
-    url(r'^project/(?P<project_slug>\w+)$', 'piweekday.web.views.projectView'),
+    url(r'^project/(?P<project_slug>[\w-]+)$', 'piweekday.web.views.projectView'),
 
     url(r'^project/$', 'piweekday.web.views.projects'),
 
