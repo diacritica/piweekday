@@ -12,7 +12,11 @@ def home(request):
     return render_to_response('web/home.html',  {'STATIC_URL': STATIC_URL})
 
 def piweek(request):
-    return render_to_response('web/piweek.html',  {'STATIC_URL': STATIC_URL})
+    
+    projectList = Project.objects.all()
+    totalsum = [sum(getattr(proj,"data%i"%(i)) for proj in projectList) for i in range(1,6)]
+
+    return render_to_response('web/piweek.html',  {'STATIC_URL': STATIC_URL, "totalsum":totalsum})
 
 def projects(request):
     projectList = Project.objects.all()
