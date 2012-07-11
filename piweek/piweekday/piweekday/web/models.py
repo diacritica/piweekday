@@ -1,8 +1,9 @@
 from django.db import models
 
-from django.utils.encoding import force_unicode
+#from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _
 
+from piweekday.atomreader.models import GithubRepo
 
 # Create your models here.
 
@@ -27,8 +28,7 @@ class Project(models.Model):
 
     description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
 
-    githubuser = models.CharField(max_length=100, blank=False, null=False, verbose_name=_("Github user"))
-    githubrepo = models.CharField(max_length=100, blank=False, null=False, verbose_name=_("Github repo"))
+    githubrepo = models.ForeignKey(GithubRepo,blank=True, null=True,related_name=_("Github repo"))
 
     thumbnail = models.ImageField(upload_to='img/', blank=True, null=True,  verbose_name=_("Project's image"))
 

@@ -11,8 +11,11 @@
 
                <div class="sliderwrapper">
                    <ul class="slider clearfix">
-                       <li><img src="{{STATIC_URL}}img/macadjan01.png" alt="Slider1" /></li>
-                       <li><img src="{{STATIC_URL}}img/macadjan02.png" alt="slider2" /></li>
+                       {% for image in project.images.all %}
+
+                       <li><img src="{{MEDIA_URL}}/{{image.content.name}}" alt="Slider1" /></li>
+
+                       {% endfor %}}
                    </ul>
                </div><!-- slidewrapper -->
 
@@ -40,7 +43,7 @@
                </ul>
 
                <div class="project-title clearfix">
-                   <img class="left" src="{{ STATIC_URL }}img/macadjan-ico.png" alt="Macadjan icon" />
+                   <img class="left" src="{{ MEDIA_URL }}/{{project.thumbnail.name}}" alt="Macadjan icon" />
                    <div class="left">
                        <h2>{{project.title}}</h2>
 
