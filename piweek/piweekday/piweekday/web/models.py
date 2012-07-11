@@ -26,6 +26,8 @@ class Project(models.Model):
     data4 = models.SmallIntegerField(blank=True, null=True,verbose_name=_('Data four'))
     data5 = models.SmallIntegerField(blank=True, null=True,verbose_name=_('Data five'))
 
+    shortdescription = models.TextField(blank=True, null=True, verbose_name=_('Short description'))
+
     description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
 
     githubrepo = models.ForeignKey(GithubRepo,blank=True, null=True,related_name=_("Github repo"))
