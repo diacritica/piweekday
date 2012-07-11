@@ -5,7 +5,20 @@
     {% endblock%}
 
 {% block content %}
-
-       Hola mundo
+        <div role="main">
+            <div class="wrapper">
+                <p>Selecciona un proyecto</p>
+                <ul class="projectList">
+                    {% for singleProject in projectList %}
+                    <li>
+                        <a href="/project/{{ singleProject.slug }}" title="{{ singleProject.title }}"><img src="{{ MEDIA_URL }}/{{singleProject.thumbnail.name}}" alt="{{ singleProject.title }} icon" /></a>
+                        <h2>{{ singleProject.title }}</h2>
+                        <!-- {{ singleProject.tagline }} -->
+                    </li>
+                    {% endfor %}
+                </ul><!-- projectList -->
+            </div><!-- wrapper -->
+        </div><!-- main -->
+       
         
 {% endblock %}
