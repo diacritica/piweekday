@@ -5,6 +5,9 @@ from piweekday.web.models import *
 from django.http import HttpResponse
 from piweekday.settings import STATIC_URL, MEDIA_URL #fixme, requestContext
 
+from piweekday.atomreader.models import GithubRepo
+from piweekday.atomreader.views import GithubAtomFeedView
+
 def home(request):
     return render_to_response('web/home.html',  {'STATIC_URL': STATIC_URL})
 
@@ -12,14 +15,14 @@ def piweek(request):
     return render_to_response('web/piweek.html',  {'STATIC_URL': STATIC_URL})
 
 def projects(request):
-    
-    projectList = Project.objects.all()
-    return render_to_response('web/projects.html',  {'STATIC_URL': STATIC_URL, 'MEDIA_URL':MEDIA_URL, "projectList":projectList })
+    return render_to_response('web/projectView.html',  {'STATIC_URL': STATIC_URL})
 
 def projectView(request, project_slug):
 
     project = Project.objects.get(slug=project_slug)
-    return render_to_response('web/projectView.html',  {'STATIC_URL': STATIC_URL, 'MEDIA_URL':MEDIA_URL, "project":project})
+    feed = GithubAtomFeedView(project.githubrepo)[:5]
+
+    return render_to_response('web/projectView.html',  {'STATIC_URL': STATIC_URL, 'MEDIA_URL':MEDIA_URL, "project":project, 'feed':feed})
 
 
 #def viewPoll(request, poll_id):

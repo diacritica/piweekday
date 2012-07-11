@@ -13,7 +13,28 @@ import feedparser
 from django.template import Context, Template, RequestContext
 
 
-def GithubAtomFeedView(request, githubuser, githubrepo):
+def GithubAtomFeedView(githubrepo):
+
+    fp = feedparser.parse('https://github.com/%s/%s/commits/master.atom'%(githubrepo.githubuser,githubrepo.githubrepo)).entries
+
+    githubrepo.populate(fp)
+    githubrepo.save()
+
+    aCleanEntry = {}
+    feed = []
+    for entry in githubrepo.updatedentries:
+        aCleanEntry["title"]=entry["title"]
+        aCleanEntry["summary"]=entry["summary"]
+        aCleanEntry["avatar"]=entry["avatar"]
+        aCleanEntry["updated"]=entry["updated"]
+        aCleanEntry["author"] = entry["author"]
+        aCleanEntry["link"] = entry["link"]
+        feed.append(aCleanEntry)
+        aCleanEntry = {}
+
+    return feed
+
+def GithubAtomFeedViewRequest(request, githubuser, githubrepo):
 
     fp = feedparser.parse('https://github.com/%s/%s/commits/master.atom'%(githubuser,githubrepo)).entries
 
