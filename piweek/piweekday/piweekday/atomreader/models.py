@@ -11,15 +11,17 @@ class GithubRepo(models.Model):
 
         tempList = []
         for entry in feedparserEntries:
-            tempList.append({"title":entry.title,"updated":entry.updated,"link":entry.link,"summary":entry.summary,"avatar":entry.media_thumbnail[0]["url"]})
+            tempList.append({"title":entry.title,"updated":entry.updated,\
+            "link":entry.link,"summary":entry.summary,"avatar":entry.media_thumbnail[0]["url"],\
+            "author":entry.authors[0]["name"]})
 
-            
+
 
         self.updatedentries = tempList
 
     def prettyStr(self):
         return "<pre>"+self.updatedentries[0]["title"]+"\n"+self.updatedentries[0]["summary"]+"</pre>"
-        
+
 
 
     def __unicode__(self):

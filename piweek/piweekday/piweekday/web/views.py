@@ -1,7 +1,7 @@
 # Create your views here.
 
 from django.shortcuts import render_to_response
-from piweekday.web.models import Poll, Choice
+from piweekday.web.models import *
 from django.http import HttpResponse
 from piweekday.settings import STATIC_URL
 
@@ -10,6 +10,15 @@ def home(request):
 
 def piweek(request):
     return render_to_response('web/piweek.html',  {'STATIC_URL': STATIC_URL})
+
+def projects(request):
+    return render_to_response('web/projectView.html',  {'STATIC_URL': STATIC_URL})
+
+def projectView(request, project_slug):
+
+    project = Project.objects.get(slug=project_slug)
+    return render_to_response('web/projectView.html',  {'STATIC_URL': STATIC_URL, "project":project})
+
 
 #def viewPoll(request, poll_id):
 #    mypoll = Poll.objects.get(pk=poll_id)

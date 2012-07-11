@@ -16,7 +16,7 @@ from django.template import Context, Template, RequestContext
 def GithubAtomFeedView(request, githubuser, githubrepo):
 
     fp = feedparser.parse('https://github.com/%s/%s/commits/master.atom'%(githubuser,githubrepo)).entries
-    
+
     githubrepo = GithubRepo.objects.get(githubuser=githubuser,githubrepo=githubrepo)
     githubrepo.populate(fp)
     githubrepo.save()
@@ -28,6 +28,8 @@ def GithubAtomFeedView(request, githubuser, githubrepo):
         aCleanEntry["summary"]=entry["summary"]
         aCleanEntry["avatar"]=entry["avatar"]
         aCleanEntry["updated"]=entry["updated"]
+        aCleanEntry["author"] = entry["author"]
+        aCleanEntry["link"] = entry["link"]
         feed.append(aCleanEntry)
         aCleanEntry = {}
 

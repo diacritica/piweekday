@@ -60,6 +60,22 @@ body{
     margin: 0 auto;
 }
 
+.hidden{
+    display: none;
+}
+
+.left{
+    float: left;
+}
+
+.right{
+    float: right;
+}
+
+.clear{
+    clear: both;
+}
+
     /* ===== Header ========================================================
    ========================================================================== */
 
@@ -157,7 +173,174 @@ body{
           }
       }
   }
+  
+/* ===== Slider ========================================================
+   ========================================================================== */
+  
+.sliderwrapper{
+    width: 970px;
+    height: 240px;
+    overflow: hidden;
+    position:relative;
+    a.prev, a.next{
+        position: absolute;
+        top: 90px;
+        text-indent: -9999px;
+        height: 50px;
+        width: 25px;
+    }
+    a.prev{
+        left: 5px;
+        background: url('../img/navpromo.png') no-repeat 0 0;
+    }
+    a.next{
+        right: 5px;
+        background: url('../img/navpromo.png') no-repeat 0 -52px;
+    }
+    position:relative;
+    margin: 0;
+    .slider{
+        list-style: none;
+        width: 3000px;
+        position:relative;
+        margin: 0;
+        li{
+            display: block;
+            float: left;
+        }
+    }
+}
 
+    
+    /* ===== Project ========================================================
+   ========================================================================== */
+  
+.project-summary{
+    list-style: none;
+    margin:0;
+    background: #f1f1f1;
+    margin: 15px 0;
+    padding: 10px 0;
+    .border-radius(15px);
+    -webkit-box-shadow: 0 0 10px #bbb;
+    -moz-box-shadow: 0 0 10px #bbb;
+    box-shadow:0 0 10px #bbb;
+    li{
+        float:left;
+        display: block;
+        width: 19.8%;
+        padding: 50px 0 5px;
+        text-align: center;
+        border-right: 1px dotted #ccc;
+        span.number{
+            display: block;
+            font-size: 42px;
+            font-family: @LiberationSansBold;
+            margin: 10px 0;
+        }
+    }
+    li:last-child{
+        border-right: none;
+    }
+    .code-num{
+        background: url('../img/code-ico.png') no-repeat center 5px;
+    }
+    .coffee-num{
+        background: url('../img/coffee-ico.png') no-repeat center 5px;
+    }
+    .colico-num{
+        background: url('../img/colico-ico.png') no-repeat center 5px;
+    }
+    .worksforme-num{
+        background: url('../img/worksforme-ico.png') no-repeat center 5px;
+    }
+    .blame-num{
+        background: url('../img/blame-ico.png') no-repeat center 5px;
+    }
+    .concept{
+        font-family: @League-gothic;
+        font-size: 16px;
+        color: @grayDark;
+    }
+}
+
+.project-title{
+    margin-top: 40px;
+    img{
+        margin-right: 20px;
+    }
+    h2{
+        font-family: @LiberationSans;
+        font-size: 32px;
+        color: @grayDark;
+    }
+    p{
+        font-family: @LiberationSans;
+        font-size: 14px;
+        color: @grayLight;
+    }
+}
+
+.project-data{
+    
+}
+
+.sidebar.team{
+    ul{
+        list-style: none;
+        li{
+            padding: 10px 0;
+            
+            img{
+                margin-right: 10px;
+            }
+            h4{
+                a{
+                    font-family: @LiberationSansBold;
+                    color: @grayDark;
+                    font-size: 16px;
+                }
+            }
+            p{
+                font-family: @LiberationSans;
+                color: @grayLight;
+            }
+        }
+    }
+}
+
+.commit-list{
+list-style: none;
+margin: 0;
+    li{
+        padding: 10px 0;
+        border-bottom: 1px dotted #ccc;
+        img{
+            margin-right: 10px;
+        }
+        h4{
+            a{
+                font-family: @LiberationSansBold;
+                color: @grayDark;
+                font-size: 16px;
+            }
+        }
+        p{
+            font-family: @LiberationSans;
+            color: @grayLight;
+        }
+    }
+}
+
+
+.main{
+    margin-right: 300px;    
+}
+.sidebar{
+    width: 300px;
+    float: right;
+}
+    
     /* ===== Footer ========================================================
    ========================================================================== */
 footer{

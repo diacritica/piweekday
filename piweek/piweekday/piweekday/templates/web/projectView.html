@@ -1,0 +1,89 @@
+{% extends "web/base.html" %}
+
+    {% block head_title %}
+       Piweek
+    {% endblock%}
+
+{% block content %}
+        <!-- THERE WE GO WITH THE CONTENT -->
+        <div role="main">
+            <div class="wrapper">
+
+               <div class="sliderwrapper">
+                   <ul class="slider clearfix">
+                       <li><img src="{{STATIC_URL}}img/macadjan01.png" alt="Slider1" /></li>
+                       <li><img src="{{STATIC_URL}}img/macadjan02.png" alt="slider2" /></li>
+                   </ul>
+               </div><!-- slidewrapper -->
+
+               <ul class="project-summary clearfix">
+                   <li class="code-num">
+                       <span class="number">{{project.data1}}</span>
+                       <span class="concept">code lines</span>
+                   </li>
+                   <li class="coffee-num">
+                       <span class="number">{{project.data2}}</span>
+                       <span class="concept">coffee liters</span>
+                   </li>
+                   <li class="colico-num">
+                       <span class="number">{{project.data3}}</span>
+                       <span class="concept">renal colic(s)</span>
+                   </li>
+                   <li class="worksforme-num">
+                       <span class="number">{{project.data4}}</span>
+                       <span class="concept">"worksforme"</span>
+                   </li>
+                   <li class="blame-num">
+                       <span class="number">{{project.data5}}</span>
+                       <span class="concept">blames</span>
+                   </li>
+               </ul>
+
+               <div class="project-title clearfix">
+                   <img class="left" src="{{ STATIC_URL }}img/macadjan-ico.png" alt="Macadjan icon" />
+                   <div class="left">
+                       <h2>{{project.title}}</h2>
+
+                   </div>
+               </div>
+
+               <div class="project-data">
+                  <div class="sidebar team">
+                       <ul>
+                            {% for teammember in project.members.all %}
+                            <li class="clearfix">
+                               <a target="_blank" href="{{teammember.url}}" title="{{teammember.name}}"><img class="left" src="{{ STATIC_URL }}img/andres-team.png" alt="{{teammember.name}}" /></a>
+                               <h4><a href="{{teammember.url}}"  target="_blank"  title="{{teammember.name}}">{{teammember.name}}</a></h4>
+                               <p>{{teammember.nickname}}</p>
+                           </li>
+                            {% endfor %}
+                       </ul>
+                   </div>
+                   <div class="main">
+                       <p>{{project.description}}
+                       </p>
+                       <h3>Last Commits</h3>
+                        <ul class="commit-list">
+                           <li class="clearfix">
+                               <img width="20" height="20" class="left" src="{{ STATIC_URL }}img/andres-team.png" alt="Andrés Moya" />
+                               <h4><a href="http://kaleidos.net/002e33/"  target="_blank"  title="Andrés Moya">Andrés Moya</a></h4>
+                               <p>Add initial templates and work in progress on js.</p>
+                           </li>
+                           <li class="clearfix">
+                               <img width="20" height="20" class="left" src="{{ STATIC_URL }}img/andres-team.png" alt="Andrés Moya" />
+                               <h4><a href="http://kaleidos.net/002e33/"  target="_blank"  title="Andrés Moya">Andrés Moya</a></h4>
+                               <p>Add initial templates and work in progress on js.</p>
+                           </li>
+                           <li class="clearfix">
+                               <img width="20" height="20" class="left" src="{{ STATIC_URL }}img/andres-team.png" alt="Andrés Moya" />
+                               <h4><a href="http://kaleidos.net/002e33/"  target="_blank"  title="Andrés Moya">Andrés Moya</a></h4>
+                               <p>Add initial templates and work in progress on js.</p>
+                           </li>
+                       </ul>
+                   </div><!-- main -->
+               </div>
+
+            </div>
+        </div><!-- main -->
+
+{% endblock %}

@@ -9,13 +9,21 @@ urlpatterns = patterns('',
     # Examples:
 
     url(r'^atom/', include('piweekday.atomreader.atomreaderurls')),
-        
-    #create home page    
+
+    #create home page
     url(r'^$', 'piweekday.web.views.home'),
-    
+
     #projects page
     url(r'^piweek/$', 'piweekday.web.views.piweek'),
-    
+
+    #projects page
+    url(r'^projects/$', 'piweekday.web.views.projects'),
+
+    #projects single page
+    url(r'^project/(?P<project_slug>\w+)$', 'piweekday.web.views.projectView'),
+
+    url(r'^project/$', 'piweekday.web.views.projects'),
+
     # url(r'^piweekday/', include('piweekday.foo.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:

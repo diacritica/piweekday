@@ -1,7 +1,7 @@
+
 {% for entry in feed %}
-<li>
-<img src="{{entry.avatar}}">
-<p>{{entry.title}}</p>
-<p>{{entry.updated}}</p>
-</li>
+<li class="clearfix">
+<img width="20" height="20" class="left" src="{{entry.avatar}}" alt="{{entry.author}}" />
+<h4><a href="{{entry.link}}"  target="_blank"  title="{{entry.author}}">{{entry.author}}}</a></h4>
+<p>{{entry.title}}</p></li>
 {% endfor %}

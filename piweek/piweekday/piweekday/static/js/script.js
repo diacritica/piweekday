@@ -30,24 +30,22 @@ Piweek.SliderView = Backbone.View.extend({
              'SlideRight',
              'SlideLeft'
             );
-            console.log($('.slider'));
-        this.$('.slider').append('<a href="#" class="prev">prev</a>', '<a href="#" class="next">next</a>');
+        $('.sliderwrapper').append('<a href="#" class="prev">prev</a>', '<a href="#" class="next">next</a>');
     },
     
         //MOve slider right
     SlideRight: function(e) {
         e.preventDefault();
-        var productListSize = ($('.product-image-list li').size() - 1) * 155;
         var target = e.currentTarget;
-        var ListPosition = this.$('.product-image-list').position();
+        var productListSize = ($('.slider li').size() - 1) * 970;
+        var ListPosition = this.$('.slider').position();
         var PositionLeft = Math.abs(ListPosition.left);
-        this.$('.product-list-wrapper a').removeClass('hidden');
-         console.log (PositionLeft + ' |!==| ' +  productListSize);
+        this.$('a').removeClass('hidden');
         if((PositionLeft) !== productListSize) {
             $(target).addClass('hidden');
-            this.$('.product-image-list').animate({left: '-=155px'}, 'medium', function(){
-                console.log ((PositionLeft + 155) + ' |!==| ' +  Math.abs(productListSize));
-                if((PositionLeft + 155) !== Math.abs(productListSize)) {
+            this.$('.slider').animate({left: '-=970px'}, 'medium', function(){
+                console.log ((PositionLeft + 970) + ' |!==| ' +  Math.abs(productListSize));
+                if((PositionLeft + 970) !== Math.abs(productListSize)) {
                     $(target).removeClass('hidden');
                 }
             });
@@ -59,15 +57,16 @@ Piweek.SliderView = Backbone.View.extend({
     //Move slider Left
     SlideLeft: function(e) {
         e.preventDefault();
-        var productListSize = ($('.product-image-list li').size() - 3) * 155;
+        var productListSize = ($('.slider li').size() - 3) * 970;
         var target = e.currentTarget;
-        var ListPosition = this.$('.product-image-list').position();
+        var ListPosition = this.$('.slider').position();
         var PositionLeft = Math.abs(ListPosition.left);
-        this.$('.product-list-wrapper a').removeClass('hidden');
+        this.$('a').removeClass('hidden');
         if(PositionLeft !== 0) {
             $(target).addClass('hidden');
-            this.$('.product-image-list').animate({left: '+=155px'}, 'medium', function(){
-                if((PositionLeft - 155) !== 0) {
+            this.$('.slider').animate({left: '+=970px'}, 'medium', function(){
+                console.log ((PositionLeft - 970) + ' |!==| ' +  Math.abs(productListSize));
+                if((PositionLeft - 970) !== 0) {
                     $(target).removeClass('hidden');
                 }
             });
