@@ -53,7 +53,7 @@
                        <ul>
                             {% for teammember in project.members.all %}
                             <li class="clearfix">
-                               <a target="_blank" href="{{teammember.url}}" title="{{teammember.name}}"><img class="left" src="{{ STATIC_URL }}img/andres-team.png" alt="{{teammember.name}}" /></a>
+                               <a target="_blank" href="{{teammember.url}}" title="{{teammember.name}}"><img height="64" width="64" class="left" src="{{MEDIA_URL}}/{{ teammember.image }}" alt="{{teammember.name}}" /></a>
                                <h4><a href="{{teammember.url}}"  target="_blank"  title="{{teammember.name}}">{{teammember.name}}</a></h4>
                                <p>{{teammember.nickname}}</p>
                            </li>
@@ -67,9 +67,9 @@
                         <ul class="commit-list">
                         {% for entry in feed %}
                            <li class="clearfix">
-                               <img width="20" height="20" class="left" src="{{entry.avatar}}" alt="{{entry.author}}" />
-                               <h4><a href="{{entry.link}}"  target="_blank"  title="{{entry.author}}">{{entry.author}}</a></h4>
-                               <p>{{entry.title}}</p>
+                               <img width="20" height="20" class="left" src="{{entry.avatar}}" alt="{{entry.author}}" />                              
+                               <h4><a href="{{entry.link}}"  target="_blank"  title="{{entry.author}}">{{entry.title}}</a></h4>
+                               <p>commited by {{entry.author}}</p>
                            </li>
                         {% endfor %}
                        </ul>
