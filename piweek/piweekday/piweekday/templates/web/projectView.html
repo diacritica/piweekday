@@ -67,21 +67,13 @@
                        </p>
                        <h3>Last Commits</h3>
                         <ul class="commit-list">
+                        {% for entry in feed %}
                            <li class="clearfix">
-                               <img width="20" height="20" class="left" src="{{ STATIC_URL }}img/andres-team.png" alt="Andrés Moya" />
-                               <h4><a href="http://kaleidos.net/002e33/"  target="_blank"  title="Andrés Moya">Andrés Moya</a></h4>
-                               <p>Add initial templates and work in progress on js.</p>
+                               <img width="20" height="20" class="left" src="{{entry.avatar}}" alt="{{entry.author}}" />
+                               <h4><a href="{{entry.link}}"  target="_blank"  title="{{entry.author}}">{{entry.author}}</a></h4>
+                               <p>{{entry.title}}</p>
                            </li>
-                           <li class="clearfix">
-                               <img width="20" height="20" class="left" src="{{ STATIC_URL }}img/andres-team.png" alt="Andrés Moya" />
-                               <h4><a href="http://kaleidos.net/002e33/"  target="_blank"  title="Andrés Moya">Andrés Moya</a></h4>
-                               <p>Add initial templates and work in progress on js.</p>
-                           </li>
-                           <li class="clearfix">
-                               <img width="20" height="20" class="left" src="{{ STATIC_URL }}img/andres-team.png" alt="Andrés Moya" />
-                               <h4><a href="http://kaleidos.net/002e33/"  target="_blank"  title="Andrés Moya">Andrés Moya</a></h4>
-                               <p>Add initial templates and work in progress on js.</p>
-                           </li>
+                        {% endfor %}
                        </ul>
                    </div><!-- main -->
                </div>
