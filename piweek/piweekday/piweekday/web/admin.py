@@ -1,12 +1,5 @@
-
-
 from django.contrib import admin
-from piweekday.web.models import TeamMember,VideoFile,Project,ImageFile
-
-from django import forms
-from django.contrib import admin
-from django.contrib.admin.widgets import FilteredSelectMultiple
-
+from piweekday.web.models import TeamMember, VideoFile, Project, ImageFile
 
 class CommonMedia:
   js = (
@@ -22,14 +15,11 @@ class CommonMedia:
 class ProjectAdmin(admin.ModelAdmin):
      filter_horizontal = ("videos","images","members")
      list_display = ('title',)
-#     list_filter = ('title', 'level','status','alignment','species','pncorpc','canon_level','author','deactivated')
      Media = CommonMedia
 
 
 admin.site.register(Project, ProjectAdmin)
-
 admin.site.register(TeamMember)
-
 admin.site.register(VideoFile)
 admin.site.register(ImageFile)
 

@@ -10,10 +10,10 @@ urlpatterns = patterns('',
 
     url(r'^atom/', include('piweekday.atomreader.atomreaderurls')),
 
-    #create home page
+    #homepage
     url(r'^$', 'piweekday.web.views.home'),
 
-    #projects page
+    #piweek page
     url(r'^piweek/$', 'piweekday.web.views.piweek'),
 
     #projects page

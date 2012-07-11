@@ -2,7 +2,6 @@ from django.db import models
 
 #from django.utils.encoding import force_unicode
 from django.utils.translation import ugettext_lazy as _
-
 from piweekday.atomreader.models import GithubRepo
 
 # Create your models here.
@@ -27,13 +26,11 @@ class Project(models.Model):
     data5 = models.SmallIntegerField(blank=True, null=True,verbose_name=_('Data five'))
 
     shortdescription = models.TextField(blank=True, null=True, verbose_name=_('Short description'))
-
     description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
 
     githubrepo = models.ForeignKey(GithubRepo,blank=True, null=True,related_name=_("Github repo"))
 
     thumbnail = models.ImageField(upload_to='img/', blank=True, null=True,  verbose_name=_("Project's image"))
-
     videos = models.ManyToManyField('VideoFile', blank=True, null=True,  related_name=_("Videos"))
     images = models.ManyToManyField('ImageFile', blank=True, null=True,  related_name=_("Images"))
 
@@ -62,9 +59,7 @@ class TeamMember(models.Model):
     slug = models.SlugField(blank=True,null=True,max_length=200,help_text="A short label, generally used in URLs. AUTOMATICALLY ADDED!")
 
     description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
-
     image = models.ImageField(upload_to='img/', blank=True, null=True,  verbose_name=_("Member's photo"))
-
     url = models.URLField(blank=True, null=True, verbose_name=_('Url'))
 
     def __unicode__(self):
@@ -85,14 +80,13 @@ class TeamMember(models.Model):
 class VideoFile(models.Model):
     name = models.CharField(max_length='100', blank=False, null=False, verbose_name=_('Filename'))
     description =  models.TextField(blank=True, null=True, verbose_name=_('Description'))
-    content = models.FileField(upload_to='files/', blank=True, null=True,  verbose_name=_("Content"))
-
-    #Generic to all objects
+    comments = models.TextField(blank=True, null=True, verbose_name=_('Comments'))
 
     slug = models.SlugField(blank=True,null=True,max_length=200,help_text="A short label, generally used in URLs. AUTOMATICALLY ADDED!")
 
-    comments = models.TextField(blank=True, null=True, verbose_name=_('Comments'))
+    content = models.FileField(upload_to='files/', blank=True, null=True,  verbose_name=_("Content"))
     videoformat = models.CharField(max_length=5, blank=True, null=True, choices=VIDEO_FORMAT_CHOICES, verbose_name=_('Video format choices'))
+
     date = models.DateField(verbose_name=_('Creation date'))
 
     def save(self, *args, **kwargs):
@@ -109,19 +103,17 @@ class VideoFile(models.Model):
         verbose_name = _(u'VideoFile')
         get_latest_by = 'order_name'
         ordering = ['-name']
-        #unique_together = ('name', 'parent')
+        unique_together = ('name', 'videoformat')
 
 
 class ImageFile(models.Model):
     name = models.CharField(max_length='100', blank=False, null=False, verbose_name=_('Filename'))
     description =  models.TextField(blank=True, null=True, verbose_name=_('Description'))
-    content = models.FileField(upload_to='img/', blank=True, null=True,  verbose_name=_("Content"))
-
-    #Generic to all objects
+    comments = models.TextField(blank=True, null=True, verbose_name=_('Comments'))
 
     slug = models.SlugField(blank=True,null=True,max_length=200,help_text="A short label, generally used in URLs. AUTOMATICALLY ADDED!")
 
-    comments = models.TextField(blank=True, null=True, verbose_name=_('Comments'))
+    content = models.FileField(upload_to='img/', blank=True, null=True,  verbose_name=_("Content"))
 
     date = models.DateField(verbose_name=_('Creation date'))
 
@@ -139,7 +131,6 @@ class ImageFile(models.Model):
         verbose_name = _(u'ImageFile')
         get_latest_by = 'order_name'
         ordering = ['-name']
-        #unique_together = ('name', 'parent')
 
 
 
