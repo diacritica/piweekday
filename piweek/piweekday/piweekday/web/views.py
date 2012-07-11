@@ -12,7 +12,9 @@ def piweek(request):
     return render_to_response('web/piweek.html',  {'STATIC_URL': STATIC_URL})
 
 def projects(request):
-    return render_to_response('web/projectView.html',  {'STATIC_URL': STATIC_URL})
+    
+    projectList = Project.objects.all()
+    return render_to_response('web/projects.html',  {'STATIC_URL': STATIC_URL, 'MEDIA_URL':MEDIA_URL, "projectList":projectList })
 
 def projectView(request, project_slug):
 
