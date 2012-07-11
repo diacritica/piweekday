@@ -9,19 +9,9 @@ class GithubRepo(models.Model):
 
     def populate(self, feedparserEntries):
 
-        tempList = []
-        for entry in feedparserEntries:
-            tempList.append({"title":entry.title,"updated":entry.updated,\
+        self.updatedentries = [{"title":entry.title,"updated":entry.updated,\
             "link":entry.link,"summary":entry.summary,"avatar":entry.media_thumbnail[0]["url"],\
-            "author":entry.authors[0]["name"]})
-
-
-
-        self.updatedentries = tempList
-
-    def prettyStr(self):
-        return "<pre>"+self.updatedentries[0]["title"]+"\n"+self.updatedentries[0]["summary"]+"</pre>"
-
+            "author":entry.authors[0]["name"]} for entry in feedparserEntries]
 
 
     def __unicode__(self):
