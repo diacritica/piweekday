@@ -97,17 +97,25 @@
         <script src="{% static "js/libs/popcorn.js" %}"></script>
         <script src="{% static "js/script.js" %}"></script>
         <script>
+        //Example02
         Piweek._mediaUrl = "{{ MEDIA_URL }}";
         Piweek.event_name01 = "eventname";
         Piweek.event_fire01 = 4;
         Piweek.event_end01 = 8;
         Piweek.event_text01 = "Lorem Ipsum Dolor";
+        Piweek.person_name01 = "Pablo Alba";
+        Piweek.person_pic01 = "{{MEDIA_URL}}/img/palba.png"; //esto no funciona de forma independiente
+        Piweek.person_target01 = "persontag";
         Piweek.event_target01 = "footnote";
+        //Example 02
         Piweek.event_name02 = "eventname";
         Piweek.event_fire02 = 8;
         Piweek.event_end02 = 12;
         Piweek.event_text02 = "Sit amet";
         Piweek.event_target02 = "footnote";
+        Piweek.person_name02 = "Andrés Moya";
+        Piweek.person_pic02 = "{{MEDIA_URL}}/img/andres-team.png"; //esto no funciona de forma independiente
+        Piweek.person_target02 = "persontag";
         </script>
         {% block extrascripts %}{% endblock %}
     </body>

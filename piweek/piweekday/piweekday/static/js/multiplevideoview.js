@@ -2,8 +2,7 @@
 
 */
 
-
-/* Global gonway  module namespace. */
+/* Global gonway  module namespace extend. */
 Piweek.HomeVideoView = Backbone.View.extend({
     el: $('#videoView'),
     
@@ -39,7 +38,24 @@ Piweek.HomeVideoView = Backbone.View.extend({
             end: Piweek.event_end02,
             text: Piweek.event_text02,
             target: Piweek.event_target02
+        }),
+        pop.tagthisperson({
+            start: Piweek.event_fire01,
+            end: Piweek.event_end01,
+            person: Piweek.person_name01,
+            image: Piweek.person_pic01,
+            href: "http://www.kaleidos.net",
+            target: Piweek.person_target01
+        }),
+        pop.tagthisperson({
+            start: Piweek.event_fire02,
+            end: Piweek.event_end02,
+            person: Piweek.person_name02,
+            image: Piweek.person_pic02,
+            href: "http://www.kaleidos.net",
+            target: Piweek.person_target02
         });
+        ;
     },
     
     popcornVideoChangeSourceSeekagift: function() {
