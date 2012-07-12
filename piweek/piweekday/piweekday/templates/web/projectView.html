@@ -60,11 +60,11 @@
                             {% endfor %}
                        </ul>
                    </div>
-                   <div class="main">
+                   <div class="main clearfix">
                        <p>{{project.description}}
                        </p>
                        <h3>Last Commits</h3>
-                        <ul class="commit-list">
+                        <ul class="commit-list clearfix">
                         {% for entry in feed %}
                            <li class="clearfix">
                                <img width="20" height="20" class="left" src="{{entry.avatar}}" alt="{{entry.author}}" />                              
