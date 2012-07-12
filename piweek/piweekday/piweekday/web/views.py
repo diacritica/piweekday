@@ -28,3 +28,7 @@ def projectView(request, project_slug):
 
     return render_to_response('web/projectView.html',  {'project':project, 'feed':feed}, context_instance=RequestContext(request))
 
+def videoView(request):
+    projectsVideoList = Project.objects.all()
+    return render_to_response('web/videoView.html', {'projectsVideoList':projectsVideoList},context_instance=RequestContext(request) )
+

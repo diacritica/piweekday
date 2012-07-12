@@ -1,0 +1,33 @@
+{% extends "web/base.html" %}
+
+    {% block head_title %}
+       ΠWEEK Videos
+    {% endblock%}
+
+{% block content %}
+        <div id="videoView" role="main">
+            <div class="wrapper">
+                <div class="video-container">
+                    <video height="576" width="970" id="video" controls>
+                        <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4"></source>
+                        <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv"></source>
+                    </video>
+                </div>
+                <div id="footnote"><!-- footnote --></div>
+                <ul class="projectVideoList">
+                     {% for projectsVideoList in projectsVideoList %}
+                        <li class="{{ projectsVideoList.slug }}">
+                            <img width="60" height="60" src="{{ MEDIA_URL }}/{{projectsVideoList.thumbnail.name}}" alt="{{ projectsVideoList.title }} icon" />
+                            <h2>{{ projectsVideoList.title }}</h2>
+                            <!-- {{ singleProject.tagline }} -->
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div><!-- main -->
+        
+{% endblock %}
+
+{% block extrascripts %}
+    <script src="{{STATIC_URL}}js/multiplevideoview.js"></script>
+{% endblock %}

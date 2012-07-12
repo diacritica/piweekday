@@ -23,6 +23,9 @@ urlpatterns = patterns('',
     url(r'^project/(?P<project_slug>[\w-]+)$', 'piweekday.web.views.projectView'),
 
     url(r'^project/$', 'piweekday.web.views.projects'),
+    
+    #multipleVideo single page
+    url(r'^videos/$', 'piweekday.web.views.videoView'),
 
     # url(r'^piweekday/', include('piweekday.foo.urls')),
 
