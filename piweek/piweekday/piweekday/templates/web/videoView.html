@@ -17,7 +17,7 @@
                         -->
                     </video>
                 </div>
-                <div id="footnote"><!-- footnote --></div>
+                <div id="footnote"></div>
                 <ul class="projectVideoList clearfix">
                      {% for projectsVideoList in projectsVideoList %}
                         <li class="{{ projectsVideoList.slug }}">
@@ -29,14 +29,8 @@
                 </ul>
             </div>
         </div><!-- main -->
-        
 {% endblock %}
 
 {% block extrascripts %}
     <script src="{{STATIC_URL}}js/multiplevideoview.js"></script>
-    <script>
-        Event_name = "eventname";
-        Event_fire = "4";
-        Event_text = "Lorem Ipsum";
-    </script>
 {% endblock %}

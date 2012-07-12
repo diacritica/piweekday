@@ -98,6 +98,16 @@
         <script src="{% static "js/script.js" %}"></script>
         <script>
         Piweek._mediaUrl = "{{ MEDIA_URL }}";
+        Piweek.event_name01 = "eventname";
+        Piweek.event_fire01 = 4;
+        Piweek.event_end01 = 8;
+        Piweek.event_text01 = "Lorem Ipsum Dolor";
+        Piweek.event_target01 = "footnote";
+        Piweek.event_name02 = "eventname";
+        Piweek.event_fire02 = 8;
+        Piweek.event_end02 = 12;
+        Piweek.event_text02 = "Sit amet";
+        Piweek.event_target02 = "footnote";
         </script>
         {% block extrascripts %}{% endblock %}
     </body>

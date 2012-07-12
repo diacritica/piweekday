@@ -24,8 +24,22 @@ Piweek.HomeVideoView = Backbone.View.extend({
             'popcornVideoChangeSourceMacadjan',
             'popcornVideoChangeSourceGreenmine',
             'popcornVideoChangeSourcePiweekday'
-            );
+        );
         this.time;
+        var pop = Popcorn('#video');
+  
+        pop.footnote({
+            start: Piweek.event_fire01,
+            end: Piweek.event_end01,
+            text: Piweek.event_text01,
+            target: Piweek.event_target01
+        }),
+        pop.footnote({
+            start: Piweek.event_fire02,
+            end: Piweek.event_end02,
+            text: Piweek.event_text02,
+            target: Piweek.event_target02
+        });
     },
     
     popcornVideoChangeSourceSeekagift: function() {
