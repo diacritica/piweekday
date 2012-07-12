@@ -54,8 +54,21 @@ Piweek.HomeVideoView = Backbone.View.extend({
             image: Piweek.person_pic02,
             href: "http://www.kaleidos.net",
             target: Piweek.person_target02
+        }),
+        pop.twitter({
+            start: Piweek.event_fire01,
+            end: Piweek.event_end01,
+            title: Piweek.twitter_title01,
+            src: Piweek.twitter_tag01,
+            target: Piweek.twitter_src01
+        }),
+        pop.twitter({
+            start: Piweek.event_fire02,
+            end: Piweek.event_end02,
+            title: Piweek.twitter_title02,
+            src: Piweek.twitter_tag02,
+            target: Piweek.twitter_src02
         });
-        ;
     },
     
     popcornVideoChangeSourceSeekagift: function() {

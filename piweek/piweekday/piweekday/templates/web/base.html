@@ -97,16 +97,22 @@
         <script src="{% static "js/libs/popcorn.js" %}"></script>
         <script src="{% static "js/script.js" %}"></script>
         <script>
-        //Example02
+        //Dynamic Media Url
         Piweek._mediaUrl = "{{ MEDIA_URL }}";
+        
+        //Example01
         Piweek.event_name01 = "eventname";
         Piweek.event_fire01 = 4;
         Piweek.event_end01 = 8;
         Piweek.event_text01 = "Lorem Ipsum Dolor";
         Piweek.person_name01 = "Pablo Alba";
-        Piweek.person_pic01 = "{{MEDIA_URL}}/img/palba.png"; //esto no funciona de forma independiente
+        Piweek.person_pic01 = "{{MEDIA_URL}}/img/palba.png"; //esto no funciona de forma independiente.
         Piweek.person_target01 = "persontag";
         Piweek.event_target01 = "footnote";
+        Piweek.twitter_title01 = "Macadjan on twitter";
+        Piweek.twitter_src01 = "tweeterdiv";
+        Piweek.twitter_tag01 = "macadjan";
+        
         //Example 02
         Piweek.event_name02 = "eventname";
         Piweek.event_fire02 = 8;
@@ -114,8 +120,11 @@
         Piweek.event_text02 = "Sit amet";
         Piweek.event_target02 = "footnote";
         Piweek.person_name02 = "Andrés Moya";
-        Piweek.person_pic02 = "{{MEDIA_URL}}/img/andres-team.png"; //esto no funciona de forma independiente
+        Piweek.person_pic02 = "{{MEDIA_URL}}/img/andres-team.png"; //esto no funciona de forma independiente.
         Piweek.person_target02 = "persontag";
+        Piweek.twitter_title02 = "Seekagift on twitter";
+        Piweek.twitter_src02 = "tweeterdiv";
+        Piweek.twitter_tag02 = "seekagift";
         </script>
         {% block extrascripts %}{% endblock %}
     </body>
