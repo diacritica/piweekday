@@ -31,6 +31,6 @@ def projectView(request, project_slug):
 
 def videoView(request):
 
-    projectListList = [p for p in Project.objects.all() if p.hasVideos()]
+    projectVideoList = [p for p in Project.objects.all() if p.hasVideos()]
     return render_to_response('web/videoView.html', {'projectsVideoList':projectsVideoList}, context_instance=RequestContext(request) )
 
