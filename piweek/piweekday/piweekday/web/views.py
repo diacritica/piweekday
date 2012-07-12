@@ -19,7 +19,7 @@ def piweek(request):
 
 def projects(request):
 
-    projectsVideoList = Project.objects.all()
+    projectList = Project.objects.all()
     return render_to_response('web/projects.html',  {"projectList":projectList}, context_instance=RequestContext(request) )
 
 def projectView(request, project_slug):

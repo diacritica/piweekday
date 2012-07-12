@@ -8,13 +8,17 @@
         <div id="videoView" role="main">
             <div class="wrapper">
                 <div class="video-container">
-                    <video height="576" width="970" id="video" controls>
-                        <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4"></source>
-                        <source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv"></source>
+                    <video height="576" width="960" id="video" controls>
+                        <source src="http://download.blender.org/peach/trailer/trailer_400p.ogg"></source>
+                        <source src="http://download.blender.org/peach/trailer/trailer_720x405.mov"></source>
+                        <!--
+                        <source src="{{ MEDIA_URL }}/files/almuerzo.ogv"></source>
+                        <source src="{{ MEDIA_URL }}/files/almuerzo.webm"></source>
+                        -->
                     </video>
                 </div>
                 <div id="footnote"><!-- footnote --></div>
-                <ul class="projectVideoList">
+                <ul class="projectVideoList clearfix">
                      {% for projectsVideoList in projectsVideoList %}
                         <li class="{{ projectsVideoList.slug }}">
                             <img width="60" height="60" src="{{ MEDIA_URL }}/{{projectsVideoList.thumbnail.name}}" alt="{{ projectsVideoList.title }} icon" />
@@ -30,4 +34,9 @@
 
 {% block extrascripts %}
     <script src="{{STATIC_URL}}js/multiplevideoview.js"></script>
+    <script>
+        Event_name = "eventname";
+        Event_fire = "4";
+        Event_text = "Lorem Ipsum";
+    </script>
 {% endblock %}

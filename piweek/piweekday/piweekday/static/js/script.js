@@ -6,6 +6,9 @@
 /* Global gonway  module namespace. */
 
 var Piweek = {};
+Piweek.mediaUrl = function(path) {
+    return this._mediaUrl + path;
+}
 
 Piweek.HomeView = Backbone.View.extend({
     

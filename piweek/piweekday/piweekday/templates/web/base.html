@@ -96,6 +96,9 @@
         <script src="{% static "js/libs/backbone-min.js" %}"></script>
         <script src="{% static "js/libs/popcorn.js" %}"></script>
         <script src="{% static "js/script.js" %}"></script>
+        <script>
+        Piweek._mediaUrl = "{{ MEDIA_URL }}";
+        </script>
         {% block extrascripts %}{% endblock %}
     </body>
 </html>
