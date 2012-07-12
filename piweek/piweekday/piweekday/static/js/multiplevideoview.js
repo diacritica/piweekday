@@ -12,32 +12,28 @@ Piweek.HomeVideoView = Backbone.View.extend({
     },
     
     initialize: function() {
-        _.bindAll(this, 'popcornVideoChangeSource', 'loadSource');
+        _.bindAll(this, 'popcornVideoChangeSource');
         this.time;
-        var pop;
-        pop.addEventListener( "changedSource", this.loadSource);
     },
     
     popcornVideoChangeSource: function(e) {
         var pop = Popcorn("#video");
-        this.time = pop.roundTime();
-        this.pop.cue((this.time+2), function() {
-            this.pop.media.children[ 0 ].src = "http://download.blender.org/peach/trailer/trailer_400p.ogg";
-            this.pop.media.children [ 1 ].src = "http://download.blender.org/peach/trailer/trailer_720x405.mov";
+        var time = pop.roundTime();
+        pop.cue(time+1, function() {
+            pop.media.children[ 0 ].src = "http://download.blender.org/peach/trailer/trailer_400p.ogg";
+            pop.media.children [ 1 ].src = "http://download.blender.org/peach/trailer/trailer_720x405.mov";
             //pop.removeplugin.destroy();
             //console.log(pop.roundTime() + 2);
-            this.pop.load();
-            this.pop.autoplay( true );
-            self.trigger("changedSource");
-            this.pop.destroy();
+            pop.load();
+            pop.autoplay( true );
+            pop.on('loadeddata', function() {
+                this.currentTime( time + 3 );
+                play();
+            }, false);
         });
         
     },
-    
-    loadSource: function(e) {
-        pop.currentTime( this.time );
-        pop.play();
-    }
+
     
 });
 
