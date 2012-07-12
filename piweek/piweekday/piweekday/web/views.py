@@ -18,7 +18,8 @@ def piweek(request):
     return render_to_response('web/piweek.html', {"totalsum":totalsum}, context_instance=RequestContext(request))
 
 def projects(request):
-    projectList = [p for p in Project.objects.all() if p.hasVideos()]
+
+    projectsVideoList = Project.objects.all()
     return render_to_response('web/projects.html',  {"projectList":projectList}, context_instance=RequestContext(request) )
 
 def projectView(request, project_slug):
@@ -29,6 +30,7 @@ def projectView(request, project_slug):
     return render_to_response('web/projectView.html',  {'project':project, 'feed':feed}, context_instance=RequestContext(request))
 
 def videoView(request):
-    projectsVideoList = Project.objects.all()
-    return render_to_response('web/videoView.html', {'projectsVideoList':projectsVideoList},context_instance=RequestContext(request) )
+
+    projectListList = [p for p in Project.objects.all() if p.hasVideos()]
+    return render_to_response('web/videoView.html', {'projectsVideoList':projectsVideoList}, context_instance=RequestContext(request) )
 
