@@ -37,6 +37,10 @@ class Project(models.Model):
     members = models.ManyToManyField('TeamMember', blank=True, null=True,  related_name=_("Members"))
 
 
+    def hasVideos(self):
+        if self.videos.all(): return True
+        else: return False
+
     def __unicode__(self):
         return unicode(u"%s" % (self.title,))
 
