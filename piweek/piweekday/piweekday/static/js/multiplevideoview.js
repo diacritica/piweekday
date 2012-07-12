@@ -25,6 +25,9 @@ Piweek.HomeVideoView = Backbone.View.extend({
             'popcornVideoChangeSourcePiweekday'
         );
         this.time;
+        if( $('#footnote div').not(':hidden')) {
+            this.$('#footnote').hide();
+        }
         var pop = Popcorn('#video');
   
         pop.footnote({
@@ -68,6 +71,34 @@ Piweek.HomeVideoView = Backbone.View.extend({
             title: Piweek.twitter_title02,
             src: Piweek.twitter_tag02,
             target: Piweek.twitter_src02
+        }),
+        pop.code({
+            start: Piweek.event_fire01,
+            end: Piweek.event_fire01 + 3,
+            onStart: function( options ) {
+                $('#footnote').fadeIn();
+                $('#persontag').fadeIn();
+                $('#tweeterdiv').fadeIn();
+            },
+            onEnd: function( options ) {
+                $('#footnote').fadeOut();
+                $('#persontag').fadeOut();
+                $('#tweeterdiv').fadeOut();
+            }
+        }),
+        pop.code({
+            start: Piweek.event_fire02,
+            end: Piweek.event_fire02 + 3,
+            onStart: function( options ) {
+                $('#footnote').fadeIn();
+                $('#persontag').fadeIn('slow');
+                $('#tweeterdiv').fadeIn();
+            },
+            onEnd: function( options ) {
+                $('#footnote').fadeOut();
+                $('#persontag').fadeOut('slow');
+                $('#tweeterdiv').fadeOut();
+            }
         });
     },
     

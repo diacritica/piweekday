@@ -348,11 +348,29 @@ width: 100%;
    ========================================================================== */
   
   .projectList{
-      list-style: none;
+      list-style-type: none;
+      margin: 20px 0;
       li{
           text-align: center;
           width: 220px;
           float: left;
+          margin: 15px 0;
+          &:hover{
+              opacity: 0.4;
+              -webkit-transform: rotate(7.5deg);  /* Saf3.1+, Chrome */
+                 -moz-transform: rotate(7.5deg);  /* FF3.5+ */
+                  -ms-transform: rotate(7.5deg);  /* IE9 */
+                   -o-transform: rotate(7.5deg);  /* Opera 10.5 */
+                      transform: rotate(7.5deg);
+                -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+             -moz-transition: all 0.3s ease-out;  /* FF4+ */
+               -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+                  transition: all 0.3s ease-out;
+          }
+          a{
+            color: @grayDark;
+            text-decoration: none;
+          }
       }
   }
   
@@ -369,8 +387,65 @@ width: 100%;
           cursor: pointer;
           &:hover{
               opacity: 0.4;
+                            -webkit-transform: rotate(7.5deg);  /* Saf3.1+, Chrome */
+                 -moz-transform: rotate(7.5deg);  /* FF3.5+ */
+                  -ms-transform: rotate(7.5deg);  /* IE9 */
+                   -o-transform: rotate(7.5deg);  /* Opera 10.5 */
+                      transform: rotate(7.5deg);
+                -webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+             -moz-transition: all 0.3s ease-out;  /* FF4+ */
+               -o-transition: all 0.3s ease-out;  /* Opera 10.5+ */
+                  transition: all 0.3s ease-out;
           }
       }
+  }
+  
+  .video-data{
+      position: relative;
+      #footnote{
+        position: absolute;
+        top: 494px;
+        left: 393px;
+        padding: 6px 30px 6px 60px;
+        border-radius: 5px;
+        border: 1px solid #CCC;
+        background: url('../img/warning.png') no-repeat 5px center #fff;
+        display: none;
+        font-family: @LiberationSansBold;
+      }
+      #persontag{
+        position: absolute;
+        top: 325px;
+        right: 410px;
+        padding: 1px;
+        border-radius: 5px;
+        border: 1px solid #CCC;
+        background: #fff;
+        box-shadow: 
+        display: none;
+        text-align: center;
+        img{
+            display: block;
+            clear: both;
+        }
+        a{
+            font-family: 'LiberationSans';
+            font-weight: bold;
+            color: #333;
+            font-size: 22px;
+            padding: 10px 0;
+            display: block;
+        }
+      }
+      #tweeterdiv{
+        position: absolute;
+        top: 20px;
+        right: -250px;
+        height: 536px;
+        -webkit-box-shadow: 0px 7px 7px 0px #ccc; /* Saf3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+        box-shadow: 0px 7px 7px 0px #ccc;
+        background: #fff;
+    }
   }
     
     /* ===== Footer ========================================================
