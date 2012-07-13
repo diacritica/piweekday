@@ -128,6 +128,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'piweekday.web',
     'piweekday.atomreader',
+    'south',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
 )

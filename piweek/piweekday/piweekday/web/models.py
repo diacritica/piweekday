@@ -137,6 +137,33 @@ class ImageFile(models.Model):
         ordering = ['-name']
 
 
+class PopEvent(models.Model):
+    name = models.CharField(max_length=100, blank=False, null=False, verbose_name=_("Event's name"))
+
+    fire = models.SmallIntegerField(blank=True, null=True,verbose_name=_("Fire second"))
+    end = models.SmallIntegerField(blank=True, null=True,verbose_name=_("End second"))
+
+    text = models.TextField(blank=True, null=True, verbose_name=_("Event's text"))
+
+    person = models.ForeignKey('TeamMember', blank=True, null=True,  related_name=_("Member"))
+
+    target = models.CharField(max_length=100, blank=False, null=False, verbose_name=_("Event's target"))
+
+    twittertitle = models.CharField(max_length=100, blank=False, null=False, verbose_name=_("Twitter's title"))
+    twittertag = models.CharField(max_length=100, blank=False, null=False, verbose_name=_("Event's hashtag"))
+    twittersrc = models.CharField(max_length=100, blank=False, null=False, verbose_name=_("Twitter's source"))
+    
+
+    def __unicode__(self):
+        return unicode(u"%s" % (self.name,))
+
+    class Meta:
+        db_table = u'popevent'
+        verbose_name = _(u'PopEvent')
+        get_latest_by = 'order_name'
+        ordering = ['-fire']
+
+
 
 def unique_slug(item,slug_source,slug_field):
   """Ensures a unique slug field by appending an integer counter to duplicate slugs.
