@@ -3,6 +3,13 @@
     {% block head_title %}
        ΠWEEK Videos
     {% endblock%}
+    
+    {% block head_breadcrumb %}
+    <ul class="bread-nav">
+        <li><a class="breadcrumb-projects" href="/projects">Projects</a></li>
+        <li><a class="breadcrumb-videos" href="/videos">Videos</a></li>
+    </ul>
+    {% endblock %}
 
 {% block content %}
         <div id="videoView" role="main">
@@ -10,8 +17,9 @@
                 <div class="video-data">
                     <div class="video-container">
                         <video height="576" width="960" id="video" controls>
-                            <source src="http://download.blender.org/peach/trailer/trailer_400p.ogg"></source>
-                            <source src="http://download.blender.org/peach/trailer/trailer_720x405.mov"></source>
+                               
+                            <source src="{{ MEDIA_URL }}/files/greenmine.ogg"></source>
+                            <source src="{{ MEDIA_URL }}/files/greenmine.webm"></source>
                             <!--
                             <source src="{{ MEDIA_URL }}/files/almuerzo.ogv"></source>
                             <source src="{{ MEDIA_URL }}/files/almuerzo.webm"></source>

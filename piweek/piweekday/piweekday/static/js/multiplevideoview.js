@@ -9,20 +9,23 @@ Piweek.HomeVideoView = Backbone.View.extend({
     events: {
         'click .projectVideoList li.seekagift': 'popcornVideoChangeSourceSeekagift',
         'click .projectVideoList li.rpyg': 'popcornVideoChangeSourceRpyg',
-        'click .projectVideoList li.ninja-sysop': 'popcornVideoChangeSourceNinjaSysop',
         'click .projectVideoList li.macadjan': 'popcornVideoChangeSourceMacadjan',
         'click .projectVideoList li.greenmine': 'popcornVideoChangeSourceGreenmine',
-        'click .projectVideoList li.piweekday': 'popcornVideoChangeSourcePiweekday'
+        'click .projectVideoList li.piweekday': 'popcornVideoChangeSourcePiweekday',
+        'click .projectVideoList li.tu-tasa-de-paro': 'popcornVideoChangeSourceTasaparo',
+        'click .projectVideoList li.integracion-bokzuy-ducksborad': 'popcornVideoChangeSourceBokzuy'
+        
     },
     
     initialize: function() {
         _.bindAll(this, 
             'popcornVideoChangeSourceSeekagift', 
             'popcornVideoChangeSourceRpyg',
-            'popcornVideoChangeSourceNinjaSysop',
             'popcornVideoChangeSourceMacadjan',
             'popcornVideoChangeSourceGreenmine',
-            'popcornVideoChangeSourcePiweekday'
+            'popcornVideoChangeSourcePiweekday',
+            'popcornVideoChangeSourceTasaparo',
+            'popcornVideoChangeSourceBokzuy'
         );
         
         this.time;
@@ -80,71 +83,6 @@ Piweek.HomeVideoView = Backbone.View.extend({
             });
         });
         
-        /*,
-        pop.footnote({
-            start: Piweek.event_fire02,
-            end: Piweek.event_end02,
-            text: Piweek.event_text02,
-            target: Piweek.event_target02
-        }),
-        pop.tagthisperson({
-            start: Piweek.event_fire01,
-            end: Piweek.event_end01,
-            person: Piweek.person_name01,
-            image: Piweek.person_pic01,
-            href: "http://www.kaleidos.net",
-            target: Piweek.person_target01
-        }),
-        pop.tagthisperson({
-            start: Piweek.event_fire02,
-            end: Piweek.event_end02,
-            person: Piweek.person_name02,
-            image: Piweek.person_pic02,
-            href: "http://www.kaleidos.net",
-            target: Piweek.person_target02
-        }),
-        pop.twitter({
-            start: Piweek.event_fire01,
-            end: Piweek.event_end01,
-            title: Piweek.twitter_title01,
-            src: Piweek.twitter_tag01,
-            target: Piweek.twitter_src01
-        }),
-        pop.twitter({
-            start: Piweek.event_fire02,
-            end: Piweek.event_end02,
-            title: Piweek.twitter_title02,
-            src: Piweek.twitter_tag02,
-            target: Piweek.twitter_src02
-        }),
-        pop.code({
-            start: Piweek.event_fire01,
-            end: Piweek.event_fire01 + 3,
-            onStart: function( options ) {
-                $('#footnote').fadeIn();
-                $('#persontag').fadeIn();
-                $('#tweeterdiv').fadeIn();
-            },
-            onEnd: function( options ) {
-                $('#footnote').fadeOut();
-                $('#persontag').fadeOut();
-                $('#tweeterdiv').fadeOut();
-            }
-        }),
-        pop.code({
-            start: Piweek.event_fire02,
-            end: Piweek.event_fire02 + 3,
-            onStart: function( options ) {
-                $('#footnote').fadeIn();
-                $('#persontag').fadeIn('slow');
-                $('#tweeterdiv').fadeIn();
-            },
-            onEnd: function( options ) {
-                $('#footnote').fadeOut();
-                $('#persontag').fadeOut('slow');
-                $('#tweeterdiv').fadeOut();
-            }
-        });*/
         
     },
     
@@ -152,10 +90,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time, function() {
-            //pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/piweekday-tasaparo-petanca.ogv");
-            //pop.media.children [ 1 ].src = Piweek.mediaUrl("/files/piweekday-tasaparo-petanca.ogv");
-            pop.media.children[ 0 ].src = "http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4";
-            pop.media.children [ 1 ].src = "http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv";
+            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/seekagift.ogg");
+            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/seekagift.webm");
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
@@ -170,22 +106,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = "http://download.blender.org/peach/trailer/trailer_400p.ogg";
-            pop.media.children [ 1 ].src = "http://download.blender.org/peach/trailer/trailer_720x405.mov";
-            pop.load();
-            pop.autoplay( false );
-            pop.on('loadeddata', function(e) {
-                this.currentTime( time + 3 );
-                this.play();
-            }, false);
-        });
-    },
-    
-    popcornVideoChangeSourceNinjaSysop: function(e) {
-        var pop = Popcorn("#video");
-        var time = pop.roundTime();
-        pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = "http://upload.wikimedia.org/wikipedia/commons/7/7c/Anibal%C3%B1_Fernandez_se_opone_al_Canon_Digital_en_Argenitna.ogg";
+            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/rpyg.ogg");
+            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/rpyg.webm");
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
@@ -199,7 +121,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = "http://upload.wikimedia.org/wikipedia/commons/8/80/Criaanza_de_los_animales.ogv";
+              pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/macadjan.ogg");
+            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/macadjan.webm");
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
@@ -213,7 +136,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = "http://upload.wikimedia.org/wikipedia/commons/b/bd/TheEarthquakers.ogv";
+            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/greenmine.ogg");
+            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/greenmine.webm");
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function() {
@@ -227,7 +151,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = "http://upload.wikimedia.org/wikipedia/commons/9/9b/Longines_Chronicles_with_Lord_John_Wilmot_1951_ARC-96117.ogv";
+            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/piweekday.ogg");
+            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/piweekday.webm");
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
@@ -235,7 +160,37 @@ Piweek.HomeVideoView = Backbone.View.extend({
                 this.play();
             }, false);
         });
-    }
+    },
+    
+    popcornVideoChangeSourceTasaparo: function(e) {
+        var pop = Popcorn("#video");
+        var time = pop.roundTime();
+        pop.cue(time+1, function() {
+            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/tasaparo.ogg");
+            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/tasaparo.webm");
+            pop.load();
+            pop.autoplay( false );
+            pop.on('loadeddata', function(e) {
+                this.currentTime( time + 3 );
+                this.play();
+            }, false);
+        });
+    },
+    
+    popcornVideoChangeSourceBokzuy: function(e) {
+        var pop = Popcorn("#video");
+        var time = pop.roundTime();
+        pop.cue(time+1, function() {
+            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/bokzuy.ogg");
+            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/bokzuy.webm");
+            pop.load();
+            pop.autoplay( false );
+            pop.on('loadeddata', function(e) {
+                this.currentTime( time + 3 );
+                this.play();
+            }, false);
+        });
+    },
     
 });
 
