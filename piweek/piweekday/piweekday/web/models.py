@@ -61,6 +61,7 @@ class TeamMember(models.Model):
     nickname = models.CharField(max_length=100, blank=False, null=False, verbose_name=_("Nickname"))
 
     slug = models.SlugField(blank=True,null=True,max_length=200,help_text="A short label, generally used in URLs. AUTOMATICALLY ADDED!")
+    target = models.CharField(max_length=100, blank=False, null=False, verbose_name=_("Target"))
 
     description = models.TextField(blank=True, null=True, verbose_name=_('Description'))
     image = models.ImageField(upload_to='img/', blank=True, null=True,  verbose_name=_("Member's photo"))
