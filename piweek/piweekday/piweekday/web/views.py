@@ -3,7 +3,7 @@
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 
-from piweekday.web.models import Project
+from piweekday.web.models import Project, PopEvent
 from piweekday.atomreader.models import GithubRepo
 from piweekday.atomreader.views import GithubAtomFeedView
 
@@ -31,7 +31,8 @@ def projectView(request, project_slug):
     return render_to_response('web/projectView.html',  {'project':project, 'feed':feed, "projectList":projectList}, context_instance=RequestContext(request))
 
 def videoView(request):
+    PopEvents = PopEvent.objects.all()
     projectList = Project.objects.all()
     projectsVideoList = [p for p in Project.objects.all() if p.hasVideos()]
-    return render_to_response('web/videoView.html', {'projectsVideoList':projectsVideoList, "projectList":projectList}, context_instance=RequestContext(request) )
+    return render_to_response('web/videoView.html', {'projectsVideoList':projectsVideoList, "projectList":projectList,"PopEvents":PopEvents}, context_instance=RequestContext(request) )
 

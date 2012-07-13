@@ -66,6 +66,7 @@
         <script src="{% static "js/libs/backbone-min.js" %}"></script>
         <script src="{% static "js/libs/popcorn.js" %}"></script>
         <script src="{% static "js/script.js" %}"></script>
+        
         <script>
         //Dynamic Media Url
         Piweek._mediaUrl = "{{ MEDIA_URL }}";
@@ -74,20 +75,20 @@
         
         {% for event in Popevents %}
         
-        Piweek.event_name{{forloop.counter}} = "{{event.name}}";
-        Piweek.event_fire{{forloop.counter}} = {{event.fire}};
-        Piweek.event_end{{forloop.counter}} = {{event.end}};
-        Piweek.event_text{{forloop.counter}} = "{{event.text}}";
-        Piweek.person_name{{forloop.counter}} = "{{event.person.name}}";
-        Piweek.person_pic{{forloop.counter}} = "{{MEDIA_URL}}/{{event.person.image}}";
-        Piweek.person_target{{forloop.counter}} = "{{event.person.target}}"; //Id donde se muestra el tag de la persona
-        Piweek.event_target{{forloop.counter}} = "{{event.target}}"; //Id donde se muestra el mensaje del video
-        Piweek.twitter_title{{forloop.counter}} = "{{event.twittertitle}}";
-        Piweek.twitter_tag{{forloop.counter}} = "{{event.twittertag}}";
-        Piweek.twitter_src{{forloop.counter}} = "{{event.twittersrc}}"; //Id donde se muestra el timeline de twitter
+        Piweek._event_name0{{forloop.counter}} = "{{event.name}}";
+        Piweek._event_fire0{{forloop.counter}} = {{event.fire}};
+        Piweek._event_end0{{forloop.counter}} = {{event.end}};
+        Piweek._event_text0{{forloop.counter}} = "{{event.text}}";
+        Piweek._person_name0{{forloop.counter}} = "{{event.person.name}}";
+        Piweek._person_pic0{{forloop.counter}} = "{{MEDIA_URL}}{{event.person.image}}";
+        Piweek._person_target0{{forloop.counter}} = "{{event.person.target}}"; //Id donde se muestra el tag de la persona
+        Piweek._event_target0{{forloop.counter}} = "{{event.target}}"; //Id donde se muestra el mensaje del video
+        Piweek._twitter_title0{{forloop.counter}} = "{{event.twittertitle}}";
+        Piweek._twitter_tag0{{forloop.counter}} = "{{event.twittertag}}";
+        Piweek._twitter_src0{{forcounter}} = "{{event.twittersrc}}"; //Id donde se muestra el timeline de twitter
         
         {% endfor %}
-        
+ 
         </script>
         {% block extrascripts %}{% endblock %}
     </body>

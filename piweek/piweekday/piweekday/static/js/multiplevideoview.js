@@ -24,6 +24,7 @@ Piweek.HomeVideoView = Backbone.View.extend({
             'popcornVideoChangeSourceGreenmine',
             'popcornVideoChangeSourcePiweekday'
         );
+        
         this.time;
         if( $('#footnote div').not(':hidden')) {
             this.$('#footnote').hide();
@@ -35,7 +36,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
             end: Piweek.event_end01,
             text: Piweek.event_text01,
             target: Piweek.event_target01
-        }),
+        });
+        /*,
         pop.footnote({
             start: Piweek.event_fire02,
             end: Piweek.event_end02,
@@ -99,10 +101,11 @@ Piweek.HomeVideoView = Backbone.View.extend({
                 $('#persontag').fadeOut('slow');
                 $('#tweeterdiv').fadeOut();
             }
-        });
+        });*/
+        
     },
     
-    popcornVideoChangeSourceSeekagift: function() {
+    popcornVideoChangeSourceSeekagift: function(e) {
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time, function() {
@@ -112,7 +115,7 @@ Piweek.HomeVideoView = Backbone.View.extend({
             pop.media.children [ 1 ].src = "http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv";
             pop.load();
             pop.autoplay( false );
-            pop.on('loadeddata', function() {
+            pop.on('loadeddata', function(e) {
                 this.currentTime( time + 3 );
                 this.play();
             }, false);
@@ -128,7 +131,7 @@ Piweek.HomeVideoView = Backbone.View.extend({
             pop.media.children [ 1 ].src = "http://download.blender.org/peach/trailer/trailer_720x405.mov";
             pop.load();
             pop.autoplay( false );
-            pop.on('loadeddata', function() {
+            pop.on('loadeddata', function(e) {
                 this.currentTime( time + 3 );
                 this.play();
             }, false);
@@ -142,7 +145,7 @@ Piweek.HomeVideoView = Backbone.View.extend({
             pop.media.children[ 0 ].src = "http://upload.wikimedia.org/wikipedia/commons/7/7c/Anibal%C3%B1_Fernandez_se_opone_al_Canon_Digital_en_Argenitna.ogg";
             pop.load();
             pop.autoplay( false );
-            pop.on('loadeddata', function() {
+            pop.on('loadeddata', function(e) {
                 this.currentTime( time + 3 );
                 this.play();
             }, false);
@@ -156,7 +159,7 @@ Piweek.HomeVideoView = Backbone.View.extend({
             pop.media.children[ 0 ].src = "http://upload.wikimedia.org/wikipedia/commons/8/80/Criaanza_de_los_animales.ogv";
             pop.load();
             pop.autoplay( false );
-            pop.on('loadeddata', function() {
+            pop.on('loadeddata', function(e) {
                 this.currentTime( time + 3 );
                 this.play();
             }, false);
@@ -184,7 +187,7 @@ Piweek.HomeVideoView = Backbone.View.extend({
             pop.media.children[ 0 ].src = "http://upload.wikimedia.org/wikipedia/commons/9/9b/Longines_Chronicles_with_Lord_John_Wilmot_1951_ARC-96117.ogv";
             pop.load();
             pop.autoplay( false );
-            pop.on('loadeddata', function() {
+            pop.on('loadeddata', function(e) {
                 this.currentTime( time + 3 );
                 this.play();
             }, false);
