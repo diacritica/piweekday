@@ -26,17 +26,60 @@ Piweek.HomeVideoView = Backbone.View.extend({
         );
         
         this.time;
-        if( $('#footnote div').not(':hidden')) {
+         if( $('#footnote div').not(':hidden')) {
             this.$('#footnote').hide();
         }
         var pop = Popcorn('#video');
   
-        pop.footnote({
-            start: Piweek.event_fire01,
-            end: Piweek.event_end01,
-            text: Piweek.event_text01,
-            target: Piweek.event_target01
+        //console.log(Piweek);
+        
+        _.each(Piweek.mediaEvents, function(event){
+            pop.footnote({
+                start: event['fire'],
+                end: event['end'],
+                text: event['text'],
+                target: "footnote"
+            });            
         });
+        
+        _.each(Piweek.personEvents, function(person){
+            pop.tagthisperson({
+                start: person['fire'],
+                end: person['end'],
+                person: person['name'],
+                image: person['pic'],
+                href: "http://www.kaleidos.net",
+                target: person['target'],
+            });          
+        }); 
+        
+        _.each(Piweek.twitterEvents, function(twitter){
+            pop.twitter({
+                start: twitter['fire'],
+                end: twitter['end'],
+                title: twitter['title'],
+                src: twitter['tag'],
+                target: twitter['src']
+            });
+        }); 
+        
+        _.each(Piweek.codeEvents, function(code){
+            pop.code({
+                start: code['fire'],
+                end: code['fire'] + 3,
+                onStart: function( options ) {
+                    $('#footnote').fadeIn();
+                    $('#persontag').fadeIn();
+                    $('#tweeterdiv').fadeIn();
+                },
+                onEnd: function( options ) {
+                    $('#footnote').fadeOut();
+                    $('#persontag').fadeOut();
+                    $('#tweeterdiv').fadeOut();
+                }
+            });
+        });
+        
         /*,
         pop.footnote({
             start: Piweek.event_fire02,

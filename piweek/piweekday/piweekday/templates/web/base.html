@@ -73,20 +73,37 @@
         
         //PopEvents
         
-        {% for event in Popevents %}
-        
-        Piweek._event_name0{{forloop.counter}} = "{{event.name}}";
-        Piweek._event_fire0{{forloop.counter}} = {{event.fire}};
-        Piweek._event_end0{{forloop.counter}} = {{event.end}};
-        Piweek._event_text0{{forloop.counter}} = "{{event.text}}";
-        Piweek._person_name0{{forloop.counter}} = "{{event.person.name}}";
-        Piweek._person_pic0{{forloop.counter}} = "{{MEDIA_URL}}{{event.person.image}}";
-        Piweek._person_target0{{forloop.counter}} = "{{event.person.target}}"; //Id donde se muestra el tag de la persona
-        Piweek._event_target0{{forloop.counter}} = "{{event.target}}"; //Id donde se muestra el mensaje del video
-        Piweek._twitter_title0{{forloop.counter}} = "{{event.twittertitle}}";
-        Piweek._twitter_tag0{{forloop.counter}} = "{{event.twittertag}}";
-        Piweek._twitter_src0{{forcounter}} = "{{event.twittersrc}}"; //Id donde se muestra el timeline de twitter
-        
+        {% for event in PopEvents %}
+            
+            var event = {};           
+            event['name'] = "{{event.name}}";
+            event['fire'] = {{event.fire}};
+            event['end'] = {{event.end}};
+            event['text'] = "{{event.text}}";
+            event['target'] = "{{event.target}}";
+            Piweek.mediaEvents.push(event);
+            
+            var person = {};
+            person['fire'] = {{event.fire}};
+            person['end'] = {{event.end}};
+            person['name'] = "{{event.person.name}}";
+            person['pic'] = "{{MEDIA_URL}}{{event.person.image}}";
+            person['target'] = "{{event.person.target}}";
+            Piweek.personEvents.push(person);
+
+            var twitter = {};
+            twitter['fire'] = {{event.fire}};
+            twitter['end'] = {{event.end}};
+            twitter['title'] = "{{event.twittertitle}}";
+            twitter['tag'] = "{{event.twittertag}}";
+            twitter['src'] = "{{event.twittersrc}}";
+            Piweek.twitterEvents.push(twitter);
+            
+            var code = {};
+            code['fire'] = {{event.fire}};
+            code['end'] = {{event.end}};
+            Piweek.codeEvents.push(code);
+
         {% endfor %}
  
         </script>

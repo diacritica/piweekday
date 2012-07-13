@@ -10,6 +10,11 @@ Piweek.mediaUrl = function(path) {
     return this._mediaUrl + path;
 }
 
+Piweek.mediaEvents = [];
+Piweek.personEvents = [];
+Piweek.twitterEvents = [];
+Piweek.codeEvents = [];
+
 Piweek.HomeView = Backbone.View.extend({
     
     el: $('body'),
