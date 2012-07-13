@@ -84,6 +84,7 @@ body{
     margin-bottom: 20px;
     .wrapper{
         padding-left: 15px;
+        position: relative;
         h1{
             a{
                 text-indent: -9999px;
@@ -102,7 +103,19 @@ body{
 
     /* ===== Content ========================================================
    ========================================================================== */
-
+    .bread-nav{
+        position: absolute;
+        top: 0;
+        right: 0;
+        a{
+            display: block;
+            color: @grayDark;
+            text-decoration: none;
+            &:hover{
+                opacity: 0.4;
+            }
+        }
+    }
     /* ===== HOME ========================================================
    ========================================================================== */
   

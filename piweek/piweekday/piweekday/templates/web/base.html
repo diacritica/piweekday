@@ -41,13 +41,13 @@
             </div><!-- header -->
         </header>
 
-        <!-- THERE WE GO WITH THE CONTENT -->
+
 
         {% block content %}
         
         {% endblock %}
 
-        <!-- THERE WE GO WITH THE CONTENT -->
+ 
 
         <footer>
             <div class="wrapper">
@@ -70,32 +70,24 @@
         //Dynamic Media Url
         Piweek._mediaUrl = "{{ MEDIA_URL }}";
         
-        //Example01
-        Piweek.event_name01 = "eventname";
-        Piweek.event_fire01 = 4;
-        Piweek.event_end01 = 8;
-        Piweek.event_text01 = "Lorem Ipsum Dolor";
-        Piweek.person_name01 = "Pablo Alba";
-        Piweek.person_pic01 = "{{MEDIA_URL}}/img/palba.png"; //esto no funciona de forma independiente.
-        Piweek.person_target01 = "persontag";
-        Piweek.event_target01 = "footnote";
-        Piweek.twitter_title01 = "Macadjan on twitter";
-        Piweek.twitter_tag01 = "macadjan";
-        Piweek.twitter_src01 = "tweeterdiv";
+        //PopEvents
         
+        {% for event in Popevents %}
         
-        //Example 02
-        Piweek.event_name02 = "eventname";
-        Piweek.event_fire02 = 8;
-        Piweek.event_end02 = 12;
-        Piweek.event_text02 = "Sit amet";
-        Piweek.event_target02 = "footnote";
-        Piweek.person_name02 = "Andrés Moya";
-        Piweek.person_pic02 = "{{MEDIA_URL}}/img/andres-team.png"; //esto no funciona de forma independiente.
-        Piweek.person_target02 = "persontag";
-        Piweek.twitter_title02 = "Seekagift on twitter";
-        Piweek.twitter_src02 = "tweeterdiv";
-        Piweek.twitter_tag02 = "seekagift";
+        Piweek.event_name{{forloop.counter}} = "{{event.name}}";
+        Piweek.event_fire{{forloop.counter}} = {{event.fire}};
+        Piweek.event_end{{forloop.counter}} = {{event.end}};
+        Piweek.event_text{{forloop.counter}} = "{{event.text}}";
+        Piweek.person_name{{forloop.counter}} = "{{event.person.name}}";
+        Piweek.person_pic{{forloop.counter}} = "{{MEDIA_URL}}/{{event.person.image}}";
+        Piweek.person_target{{forloop.counter}} = "{{event.person.target}}"; //Id donde se muestra el tag de la persona
+        Piweek.event_target{{forloop.counter}} = "{{event.target}}"; //Id donde se muestra el mensaje del video
+        Piweek.twitter_title{{forloop.counter}} = "{{event.twittertitle}}";
+        Piweek.twitter_tag{{forloop.counter}} = "{{event.twittertag}}";
+        Piweek.twitter_src{{forloop.counter}} = "{{event.twittersrc}}"; //Id donde se muestra el timeline de twitter
+        
+        {% endfor %}
+        
         </script>
         {% block extrascripts %}{% endblock %}
     </body>

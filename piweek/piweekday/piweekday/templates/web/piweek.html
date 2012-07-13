@@ -5,8 +5,10 @@
     {% endblock%}
     
     {% block head_breadcrumb %}
-        <a href="/projects">Projects</a>
-        <a href="/videos">Videos</a>
+        <ul class="bread-nav">
+            <li><a class="breadcrumb-projects" href="/projects">Projects</a></li>
+            <li><a class="breadcrumb-videos" href="/videos">Videos</a></li>
+        </ul>
     {% endblock %}
 
 {% block content %}
