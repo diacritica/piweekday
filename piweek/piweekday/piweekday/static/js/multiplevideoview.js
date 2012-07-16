@@ -11,7 +11,7 @@ Piweek.HomeVideoView = Backbone.View.extend({
         'click .projectVideoList li.rpyg': 'popcornVideoChangeSourceRpyg',
         'click .projectVideoList li.macadjan': 'popcornVideoChangeSourceMacadjan',
         'click .projectVideoList li.greenmine': 'popcornVideoChangeSourceGreenmine',
-        'click .projectVideoList li.piweekday': 'popcornVideoChangeSourcePiweekday',
+        'click .projectVideoList li.a-day-in-the-week': 'popcornVideoChangeSourcePiweekday',
         'click .projectVideoList li.tu-tasa-de-paro': 'popcornVideoChangeSourceTasaparo',
         'click .projectVideoList li.integracion-bokzuy-ducksborad': 'popcornVideoChangeSourceBokzuy'
         
@@ -90,8 +90,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time, function() {
-            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/seekagift.ogg");
-            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/seekagift.webm");
+            pop.media.children[ 0 ].src = "http://piweek.net/media/files/seekagift.ogg";
+            pop.media.children[ 1 ].src = "http://piweek.net/media/files/seekagift.webm";
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
@@ -106,8 +106,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/rpyg.ogg");
-            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/rpyg.webm");
+            pop.media.children[ 0 ].src = "http://piweek.net/media/files/rpyg.ogg";
+            pop.media.children[ 1 ].src = "http://piweek.net/media/files/rpyg.webm";
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
@@ -121,8 +121,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-              pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/macadjan.ogg");
-            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/macadjan.webm");
+              pop.media.children[ 0 ].src = "http://piweek.net/media/files/macadjan.ogg";
+            pop.media.children[ 1 ].src = "http://piweek.net/media/files/macadjan.webm";
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
@@ -136,8 +136,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/greenmine.ogg");
-            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/greenmine.webm");
+            pop.media.children[ 0 ].src = "http://piweek.net/media/files/greenmine.ogg";
+            pop.media.children[ 1 ].src = "http://piweek.net/media/files/greenmine.webm";
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function() {
@@ -151,8 +151,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/piweekday.ogg");
-            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/piweekday.webm");
+            pop.media.children[ 0 ].src = "http://piweek.net/media/files/piweekday.ogg";
+            pop.media.children[ 1 ].src = "http://piweek.net/media/files/piweekday.webm";
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
@@ -166,8 +166,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/tasaparo.ogg");
-            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/tasaparo.webm");
+            pop.media.children[ 0 ].src = "http://piweek.net/media/files/tasaparo.ogg";
+            pop.media.children[ 1 ].src = "http://piweek.net/media/files/tasaparo.webm";
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
@@ -181,8 +181,8 @@ Piweek.HomeVideoView = Backbone.View.extend({
         var pop = Popcorn("#video");
         var time = pop.roundTime();
         pop.cue(time+1, function() {
-            pop.media.children[ 0 ].src = Piweek.mediaUrl("/files/bokzuy.ogg");
-            pop.media.children[ 1 ].src = Piweek.mediaUrl("/files/bokzuy.webm");
+            pop.media.children[ 0 ].src = "http://piweek.net/media/files/bokzuy.ogg";
+            pop.media.children[ 1 ].src = "http://piweek.net/media/files/bokzuy.webm";
             pop.load();
             pop.autoplay( false );
             pop.on('loadeddata', function(e) {
