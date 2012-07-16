@@ -105,15 +105,26 @@ body{
    ========================================================================== */
     .bread-nav{
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 30px;
+        right: 25px;
+        list-style-type: none;
         a{
             display: block;
             color: @grayDark;
             text-decoration: none;
+            padding-left: 30px;
+            margin: 3px 0;
+            font-family: @League-gothic;
+            font-size: 16px;
             &:hover{
                 opacity: 0.4;
             }
+        }
+        a.breadcrumb-projects{
+            background: url('../img/projects.png') no-repeat 0 center;
+        }
+        a.breadcrumb-videos{
+            background: url('../img/cam.png') no-repeat 0 center;
         }
     }
     /* ===== HOME ========================================================
